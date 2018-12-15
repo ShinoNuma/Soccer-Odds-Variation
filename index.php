@@ -1,10 +1,3 @@
-<?php 
-   include 'functions.php';
-   $Soccer = new Soccer();
-   $base_url = $Soccer->base_url();
-   $lastUpdates = array();
-   $lastUpdates['ligue1'] = $Soccer->get_last_auto_extraction_ligue1();
-?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -61,19 +54,6 @@
                               Manual Scraping
                            </h2>
                            <p>
-                              Get the last odds by match.
-                              <small>Next Auto Scraping in: <code id="nextExtraction"><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $datetime1 = new DateTime('now');
-                                     $datetime2 = new DateTime(date('H:i:s',  strtotime($lastUpdate[0]."+4 hour")));
-                                     $interval = $datetime1->diff($datetime2);
-                                     echo $interval->format('%H:%I:%S').' secondes'; 
-                                 else:
-                                     echo 'Please configure the cron job for Ligue 1 for be able to see the next auto scraping.';
-                                 endif;
-                                 ?></code></small>
-                           </p>
-                           <p>
                               <button class="btn btn-primary btn-large manualScraping" data-championship="ligue1" type="button">Scraping Odds! </button>
                            </p>
                         </div>
@@ -81,14 +61,6 @@
                            <h2>
                               Download Ligue 1 odds database
                            </h2>
-                           <p>
-                              <small>Latest database update: <code><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $lastUpdate[0].' secondes';
-                                 else:
-                                     echo 'Please configure the cron job for Ligue 1 for be able to see the next auto scraping.';
-                                 endif;?></code></small>
-                           </p>
                            <p>
                               <a class="btn btn-success btn-large" href="<?= $base_url;?>exportCSV.php?export=ligue1">CSV file</a>
                            </p>
@@ -104,19 +76,6 @@
                               Manual Scraping
                            </h2>
                            <p>
-                              Get the last odds by match.
-                              <small>Next Auto Scraping in: <code id="nextExtraction"><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $datetime1 = new DateTime('now');
-                                     $datetime2 = new DateTime(date('H:i:s',  strtotime($lastUpdate[0]."+4 hour")));
-                                     $interval = $datetime1->diff($datetime2);
-                                     echo $interval->format('%H:%I:%S').' secondes'; 
-                                 else:
-                                     echo 'Please configure the cron job for Premier League for be able to see the next auto scraping.';
-                                 endif;
-                                 ?></code></small>
-                           </p>
-                           <p>
                               <button class="btn btn-primary btn-large manualScraping" data-championship="premierleague" type="button">Scraping Odds! </button>
                            </p>
                         </div>
@@ -124,14 +83,6 @@
                            <h2>
                               Download Premier League odds database
                            </h2>
-                           <p>
-                              <small>Latest database update: <code><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $lastUpdate[0].' secondes';
-                                 else:
-                                     echo 'Please configure the cron job for Premier League for be able to see the next auto scraping.';
-                                 endif;?></code></small>
-                           </p>
                            <p>
                               <a class="btn btn-success btn-large" href="<?= $base_url;?>exportCSV.php?export=premierleague">CSV file</a>
                            </p>
@@ -147,19 +98,6 @@
                               Manual Scraping
                            </h2>
                            <p>
-                              Get the last odds by match.
-                              <small>Next Auto Scraping in: <code id="nextExtraction"><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $datetime1 = new DateTime('now');
-                                     $datetime2 = new DateTime(date('H:i:s',  strtotime($lastUpdate[0]."+4 hour")));
-                                     $interval = $datetime1->diff($datetime2);
-                                     echo $interval->format('%H:%I:%S').' secondes'; 
-                                 else:
-                                     echo 'Please configure the cron job for Bundesliga for be able to see the next auto scraping.';
-                                 endif;
-                                 ?></code></small>
-                           </p>
-                           <p>
                               <button class="btn btn-primary btn-large manualScraping" data-championship="bundesliga" type="button">Scraping Odds! </button>
                            </p>
                         </div>
@@ -167,14 +105,6 @@
                            <h2>
                               Download Bundesliga odds database
                            </h2>
-                           <p>
-                              <small>Latest database update: <code><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $lastUpdate[0].' secondes';
-                                 else:
-                                     echo 'Please configure the cron job for Bundesliga for be able to see the next auto scraping.';
-                                 endif;?></code></small>
-                           </p>
                            <p>
                               <a class="btn btn-success btn-large" href="<?= $base_url;?>exportCSV.php?export=bundesliga">CSV file</a>
                            </p>
@@ -190,19 +120,6 @@
                               Manual Scraping
                            </h2>
                            <p>
-                              Get the last odds by match.
-                              <small>Next Auto Scraping in: <code id="nextExtraction"><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $datetime1 = new DateTime('now');
-                                     $datetime2 = new DateTime(date('H:i:s',  strtotime($lastUpdate[0]."+4 hour")));
-                                     $interval = $datetime1->diff($datetime2);
-                                     echo $interval->format('%H:%I:%S').' secondes'; 
-                                 else:
-                                     echo 'Please configure the cron job for La Liga for be able to see the next auto scraping.';
-                                 endif;
-                                 ?></code></small>
-                           </p>
-                           <p>
                               <button class="btn btn-primary btn-large manualScraping" data-championship="laliga" type="button">Scraping Odds! </button>
                            </p>
                         </div>
@@ -210,14 +127,6 @@
                            <h2>
                               Download La Liga odds database
                            </h2>
-                           <p>
-                              <small>Latest database update: <code><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $lastUpdate[0].' secondes';
-                                 else:
-                                     echo 'Please configure the cron job for laliga for be able to see the next auto scraping.';
-                                 endif;?></code></small>
-                           </p>
                            <p>
                               <a class="btn btn-success btn-large" href="<?= $base_url;?>exportCSV.php?export=laliga">CSV file</a>
                            </p>
@@ -233,19 +142,6 @@
                               Manual Scraping
                            </h2>
                            <p>
-                              Get the last odds by match.
-                              <small>Next Auto Scraping in: <code id="nextExtraction"><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $datetime1 = new DateTime('now');
-                                     $datetime2 = new DateTime(date('H:i:s',  strtotime($lastUpdate[0]."+4 hour")));
-                                     $interval = $datetime1->diff($datetime2);
-                                     echo $interval->format('%H:%I:%S').' secondes'; 
-                                 else:
-                                     echo 'Please configure the cron job for Primeira Liga for be able to see the next auto scraping.';
-                                 endif;
-                                 ?></code></small>
-                           </p>
-                           <p>
                               <button class="btn btn-primary btn-large manualScraping" data-championship="primeiraliga" type="button">Scraping Odds! </button>
                            </p>
                         </div>
@@ -253,14 +149,6 @@
                            <h2>
                               Download Primeira Liga odds database
                            </h2>
-                           <p>
-                              <small>Latest database update: <code><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $lastUpdate[0].' secondes';
-                                 else:
-                                     echo 'Please configure the cron job for the Primeira Liga for be able to see the next auto scraping.';
-                                 endif;?></code></small>
-                           </p>
                            <p>
                               <a class="btn btn-success btn-large" href="<?= $base_url;?>exportCSV.php?export=primeiraliga">CSV file</a>
                            </p>
@@ -276,19 +164,6 @@
                               Manual Scraping
                            </h2>
                            <p>
-                              Get the last odds by match.
-                              <small>Next Auto Scraping in: <code id="nextExtraction"><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $datetime1 = new DateTime('now');
-                                     $datetime2 = new DateTime(date('H:i:s',  strtotime($lastUpdate[0]."+4 hour")));
-                                     $interval = $datetime1->diff($datetime2);
-                                     echo $interval->format('%H:%I:%S').' secondes'; 
-                                 else:
-                                     echo 'Please configure the cron job for Ligue 2 for be able to see the next auto scraping.';
-                                 endif;
-                                 ?></code></small>
-                           </p>
-                           <p>
                               <button class="btn btn-primary btn-large manualScraping" data-championship="ligue2" type="button">Scraping Odds! </button>
                            </p>
                         </div>
@@ -296,14 +171,6 @@
                            <h2>
                               Download Ligue 2 odds database
                            </h2>
-                           <p>
-                              <small>Latest database update: <code><?php 
-                                 if(!empty($lastUpdate[0])):
-                                     $lastUpdate[0].' secondes';
-                                 else:
-                                     echo 'Please configure the cron job for the Ligue 2 for be able to see the next auto scraping.';
-                                 endif;?></code></small>
-                           </p>
                            <p>
                               <a class="btn btn-success btn-large" href="<?= $base_url;?>exportCSV.php?export=ligue2">CSV file</a>
                            </p>
