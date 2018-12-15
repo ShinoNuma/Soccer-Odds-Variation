@@ -10,7 +10,7 @@ class Config {
   public $default = array(
         'host'        => '127.0.0.1',
         'login'       => 'root',
-        'password'    => 'G9Gun42',
+        'password'    => '',
         'database'    => 'soccer_bot'
   );
 }
