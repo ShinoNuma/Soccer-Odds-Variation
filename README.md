@@ -1,5 +1,5 @@
 # Soccer Odds Variation
-A simple bot that allows you to extract automatically (or manually) the soccer odds from the most popular betting wesite (betclick, bwin, winamax, etc...) of the most important soccer leagues in Europe (Premier League, Ligue 1, Ligue 2, Bundesliga, La Liga, Primeira Liga and the Serie A). You can also import the data into a CSV file. 
+A simple bot that allows you to extract automatically (or manually) soccer odds from the most popular betting wesite (betclick, bwin, winamax, etc...) of the most important soccer leagues in Europe (Premier League, Ligue 1, Ligue 2, Bundesliga, La Liga, Primeira Liga and the Serie A). You can also import the data into a CSV file. 
 
 **NOTE:** Tested with PHP 7.2
 
@@ -46,7 +46,7 @@ The parameter can be: `premierleague`, `ligue1`, `ligue2`, `bundesliga`, `laliga
 For example:
 
 ```shell
-$php bot-odds.php bundesliga
+$ php bot-odds.php bundesliga
 ```
 **NOTE:** You can also create a cron task to automate the scrapping because the odds vary during the day and much more on the day of the game
 
