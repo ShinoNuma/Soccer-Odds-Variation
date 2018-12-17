@@ -203,7 +203,7 @@ class Odds {
                 'message' => $championship.' odds scraping carried out successfully.'
             );
             echo json_encode($response);
-            exit();
+            exit;
         } else {
             $stmt->prepare("UPDATE last_update_$championship SET cron = now() WHERE id = 1;") or die($mysqli->error."\r\n");
             $stmt->execute();
@@ -213,6 +213,6 @@ class Odds {
         $mysqli->close();
     }
 }
-$argv = (isset($_POST)) ? $_POST : $argv;
+$argv = (!empty($_POST)) ? $_POST : $argv;
 new Odds($_POST);
 ?> 
