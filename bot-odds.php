@@ -4,7 +4,7 @@
  * How to use:
  * php bot-odds.php $championship_name
  * Example:
- * php bot-odds.php league1
+ * php bot-odds.php ligue1
  */
 class Odds {
     /**
