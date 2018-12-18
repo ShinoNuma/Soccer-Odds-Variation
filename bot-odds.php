@@ -181,15 +181,14 @@ class Odds {
         $stmt = $mysqli->stmt_init();
         for ($y = 0; $y < count($games); $y++) {
             for ($z = 0; $z < count($games[$y]) - 4; $z++) {
-                $sqlteamA     = $games[$y]['teamA'];
-                $sqlteamB     = $games[$y]['teamB'];
+                $sqlteamA     = htmlspecialchars($games[$y]['teamA'], ENT_QUOTES);
+                $sqlteamB     = htmlspecialchars($games[$y]['teamB'], ENT_QUOTES);
                 $sqlgame_day  = $games[$y]['game_day'];
-                $sqlodds_name = $games[$y][$z]['odds_name'];
+                $sqlodds_name = htmlspecialchars($games[$y][$z]['odds_name'], ENT_QUOTES);
                 $sqlWinA      = $games[$y][$z]['winA'];
                 $sqldraw      = $games[$y][$z]['draw'];
                 $sqlWinB      = $games[$y][$z]['winB'];
-                $stmt->prepare("INSERT INTO odds_$championship (teamA, teamB, game_day, odds_name, winA, draw, winB, get_stat, created) 
-                                VALUES ('$sqlteamA', '$sqlteamB', '$sqlgame_day', '$sqlodds_name', '$sqlWinA', '$sqldraw', '$sqlWinB', 0, now())") or die($mysqli->error."\r\n");
+                $stmt->prepare("INSERT INTO odds_{$championship} (teamA, teamB, game_day, odds_name, winA, draw, winB, get_stat, created) VALUES ('{$sqlteamA}', '{$sqlteamB}', '{$sqlgame_day}', '{$sqlodds_name}', {$sqlWinA}, {$sqldraw}, {$sqlWinB}, 0, now())") or die($mysqli->error."\r\n");
                 $stmt->execute();
             }
         }
