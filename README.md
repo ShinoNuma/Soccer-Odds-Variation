@@ -71,6 +71,6 @@ The parameters are same than the first script: `premierleague`, `ligue1`, `ligue
 ```shell
 $ php bot-stats.php ligue1
 ```
-**NOTE:** As I said, it work only if you already have some odds in you databse and the matches need to over.
+**NOTE:** As I said, it work only if you already have some odds in you databse and the matches need to be over.
 
 
