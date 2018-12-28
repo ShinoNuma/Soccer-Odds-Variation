@@ -5,7 +5,7 @@
  */
 class Config {
   //base URL can be custom
-  public $base_url = 'http://localhost/soccer-bot/';
+  public $base_url = 'http://localhost/foot-bot/';
   
   public $default = array(
         'host'        => '127.0.0.1',

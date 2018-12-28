@@ -4,7 +4,7 @@
  * How to use:
  * php seed.php
  */
-class Seed {
+class Seed_Odds {
     /**
      * SQL TABLE FOR MOST POPULAR UEFA championship
      *
@@ -181,5 +181,5 @@ class Seed {
     $mysqli->close();
   }
 }
-new Seed();
+new Seed_Odds();
 ?>

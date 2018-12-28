@@ -4,7 +4,7 @@
  * How to use:
  * php bot-odds.php $championship_name
  * Example:
- * php bot-odds.php ligue1
+ * php bot-odds.php league1
  */
 class Odds {
     /**
@@ -28,17 +28,17 @@ class Odds {
         $mode = (isset($argv[2])) ? $argv[2] : null;
         $link = $this->get_championship_link($championship);
         if (empty($link)) {
-            die('Unknown championship'. "\r\n");
+            die(date("Y-m-d H:i:s").': '.'Unknown championship'. "\r\n");
         }
         
         $html = $this->get_html_page($link);
         if (!$html) {
-            die(date("Y-m-d H:i:s") . ' - unavailable page' . "\r\n");
+            die(date("Y-m-d H:i:s").': '.' - unavailable page' . "\r\n");
         }
         
         $games = $this->get_odds_values($html);
         if (empty($games)) {
-            die('Problem encountered during extraction' . "\r\n");
+            die(date("Y-m-d H:i:s") .': '.'Problem encountered during extraction' . "\r\n");
         }
         return $this->save($games,$championship, $mode);
     }
@@ -188,7 +188,7 @@ class Odds {
                 $sqlWinA      = $games[$y][$z]['winA'];
                 $sqldraw      = $games[$y][$z]['draw'];
                 $sqlWinB      = $games[$y][$z]['winB'];
-                $stmt->prepare("INSERT INTO odds_{$championship} (teamA, teamB, game_day, odds_name, winA, draw, winB, get_stat, created) VALUES ('{$sqlteamA}', '{$sqlteamB}', '{$sqlgame_day}', '{$sqlodds_name}', {$sqlWinA}, {$sqldraw}, {$sqlWinB}, 0, now())") or die($mysqli->error."\r\n");
+                $stmt->prepare("INSERT INTO odds_$championship (teamA, teamB, game_day, odds_name, winA, draw, winB, get_stat, created) VALUES ('{$sqlteamA}', '{$sqlteamB}', '{$sqlgame_day}', '{$sqlodds_name}', {$sqlWinA}, {$sqldraw}, {$sqlWinB}, 0, now())") or die($mysqli->error."\r\n");
                 $stmt->execute();
             }
         }
@@ -199,19 +199,19 @@ class Odds {
             $stmt->execute();
             $response = array(
                 'ajax' => 'success',
-                'message' => $championship.' odds scraping carried out successfully.'
+                'message' => date("Y-m-d H:i:s") .': '.$championship.' odds scraping carried out successfully.'
             );
             echo json_encode($response);
-            exit;
+            exit();
         } else {
             $stmt->prepare("UPDATE last_update_$championship SET cron = now() WHERE id = 1;") or die($mysqli->error."\r\n");
             $stmt->execute();
-            echo $championship.' odds scraping carried out successfully.'."\r\n";
+            echo date("Y-m-d H:i:s") .': '.$championship.' odds scraping carried out successfully.'."\r\n";
         }
         $stmt->close();
         $mysqli->close();
     }
 }
 $argv = (!empty($_POST)) ? $_POST : $argv;
-new Odds($_POST);
-?> 
+new Odds($argv);
+?>
